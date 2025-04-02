@@ -68,9 +68,7 @@ err = abs(pval-fex)
 plt.legend()
 plt.show()
 
-def get_aj(x,j,f,w,a,b):
-    aj = quad((legendre_poly(x,j)*f(x)*w(x)),a,b)/quad((legendre_poly(x,j)**2*w(x)),a,b)
-    return aj
+
 
 
 
