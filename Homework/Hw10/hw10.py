@@ -107,7 +107,10 @@ def newton_method_nd(f,Jf,x0,tol,nmax,verb=False):
     return (r,rn,nf,nJ);
 
 def J(x):
-    return np.array([[1,0,0],[x[2],0.5,x[0]],[x[2]**2,x[1],2*x[2]*x[1]]])
+    c1 = x[0]
+    x0 = x[1]
+    x1 = x[2]
+    return np.array([[1,0,0],[x1,0.5,c1],[x1**2,x0,2*x1*c1]])
 
 def F(x):
     c1 = x[0]
@@ -115,7 +118,7 @@ def F(x):
     x1 = x[2]
     return np.array([[-.5 + c1],[0.5*x0 + c1*x1 - 0.5],[0.5*x0**2+c1*x1**2-1/3]])
 
-x0 = np.array([0.5,0,0])
+x0 = np.array([0.5,0.1,0.6])
 tol = 1e-9
 nmax = 100
 r,rn,nf,nJ = newton_method_nd(F,J,x0,tol,nmax,True)
